@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Telegram Web App!</h1>
+    <p>This is a simple web app integrated with Telegram.</p>
+    <button id="sendDataButton">Send Data to Bot</button>
+
+    <script>
+        // 初始化 Telegram Web App
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+
+        // 當按鈕被點擊時，發送數據到 Telegram 機器人
+        document.getElementById('sendDataButton').addEventListener('click', function() {
+            const data = { message: "Hello from Web App!" };
+            tg.sendData(JSON.stringify(data));
+        });
+    </script>
+</body>
+</html>
